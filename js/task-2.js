@@ -48,7 +48,6 @@ const imageMarkup = (image) => {
 
 // Create of markup (string) for all items
 const imagesMarkup = images.map(imageMarkup).join("");
-console.log(imagesMarkup);
 
 // Insert in DOM
 galleryRef.insertAdjacentHTML("beforeend", imagesMarkup);
