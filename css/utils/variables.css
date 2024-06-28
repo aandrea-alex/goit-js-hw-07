@@ -3,9 +3,6 @@
   --body-bgr-color: #f5f5f5;
   --body-color: #2e2f42;
 
-  --menu-item-accent: #404bbf;
-  --menu-color: #434455; 
-
   --form-bgr-color: #ffffff;
   --item-bgr-color: #f6f6fe;  
 
@@ -19,4 +16,6 @@
 
   --secondary-button-bgr-color: #ff4e4e;
   --secondary-button-accent-bgr-color: #ff7070;
+
+  --button-disabled-color: #434455; 
 }

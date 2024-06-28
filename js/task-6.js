@@ -21,7 +21,7 @@
 import getRandomHexColor from './getRandomHexColor.js';
 
 const refs = {
-  inputNumber:  document.querySelector('input[type="number"]'),
+  inputNumber: document.querySelector('input[type="number"]'),
   createButton: document.querySelector('button[data-create]'),
   destroyButton: document.querySelector('button[data-destroy]'),
   boxesContainer: document.getElementById('boxes'),
@@ -29,28 +29,18 @@ const refs = {
 
 refs.createButton.addEventListener('click', onCreateButtonClick);
 refs.destroyButton.addEventListener('click', onDestroyButtonClick);
+refs.inputNumber.addEventListener('input', onInputNumberInput);
 
-function createBoxes(amount) {
-  const baseSize = 30;
-  const fragment = document.createDocumentFragment();
+setBtnsDisabled();
 
-  for (let i = 0; i < amount; i++) {
-    const size = baseSize + i * 10;
-    const divRef = document.createElement('div');
-    divRef.style.width = `${size}px`;
-    divRef.style.height = `${size}px`;
-    divRef.style.backgroundColor = getRandomHexColor();
-    fragment.appendChild(divRef);
-  }
-  console.log(fragment);
-  refs.boxesContainer.appendChild(fragment);
+function onInputNumberInput() {
+  setBtnsDisabled();
 }
 
 function onCreateButtonClick() {
   const amount = Number(refs.inputNumber.value);
   if (amount >= 1 && amount <= 100) {
     refs.boxesContainer.innerHTML = '';
-    // createBoxes(amount);
     createBoxesHtml(amount);
     refs.inputNumber.value = '';
   }
@@ -58,21 +48,34 @@ function onCreateButtonClick() {
 
 function onDestroyButtonClick() {
   refs.boxesContainer.innerHTML = '';
+  setBtnsDisabled();
 }
-
-
 
 function createBoxesHtml(amount) {
   const baseSize = 30;
   let boxesMarkup = '';
-
   for (let i = 0; i < amount; i++) {
     const size = baseSize + i * 10;
     const color = getRandomHexColor();
     boxesMarkup += `<div style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
   }
 
-  // Вставляем разметку в контейнер
   const boxesContainer = document.getElementById('boxes');
   boxesContainer.innerHTML = boxesMarkup;
+  setBtnsDisabled();
+}
+
+function setBtnsDisabled() {
+  if (refs.boxesContainer.innerHTML === '') {
+    refs.destroyButton.disabled = true;
+  } else {
+    refs.destroyButton.disabled = false;
+  }
+  const amount = Number(refs.inputNumber.value);
+
+  if (amount && amount >= 1 && amount <= 100) {
+    refs.createButton.disabled = false;
+  } else {
+    refs.createButton.disabled = true;
+  }
 }

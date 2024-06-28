@@ -1,10 +1,12 @@
-.control-boxes-wrapper {
-    margin: 0 auto;
+.controls-wrapper {    
     display: flex;
     flex-direction: column;
     row-gap: 16px;
     padding: 24px;
+    border-radius: 8px;
+    padding: 24px;
     width: 534px;
+    height: 302px;
     background-color: var(--form-bgr-color);
   }
   
@@ -35,7 +37,8 @@
     border: 1px solid var(--border-hover-color);
   }
   
-  #controls > button {
+  button[data-destroy],
+  button[data-create] {
     cursor: pointer;
     color: var(--button-color);
   
@@ -71,6 +74,12 @@
   button[data-destroy]:hover,
   button[data-destroy]:focus {
     background-color: var(--secondary-button-accent-bgr-color);
+  }
+
+  button[data-create]:disabled,
+  button[data-destroy]:disabled {
+    background-color: var(--button-disabled-color);
+    cursor: not-allowed;
   }
   
   #boxes {
