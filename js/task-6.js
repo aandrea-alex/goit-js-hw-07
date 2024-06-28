@@ -44,6 +44,7 @@ function onCreateButtonClick() {
     createBoxesHtml(amount);
     refs.inputNumber.value = '';
   }
+  setBtnsDisabled();
 }
 
 function onDestroyButtonClick() {
@@ -59,10 +60,9 @@ function createBoxesHtml(amount) {
     const color = getRandomHexColor();
     boxesMarkup += `<div style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
   }
-
   const boxesContainer = document.getElementById('boxes');
   boxesContainer.innerHTML = boxesMarkup;
-  setBtnsDisabled();
+ 
 }
 
 function setBtnsDisabled() {
