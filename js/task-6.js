@@ -27,6 +27,7 @@ const refs = {
   boxesContainer: document.getElementById('boxes'),
 };
 
+
 refs.createButton.addEventListener('click', onCreateButtonClick);
 refs.destroyButton.addEventListener('click', onDestroyButtonClick);
 refs.inputNumber.addEventListener('input', onInputNumberInput);
@@ -36,6 +37,7 @@ setBtnsDisabled();
 function onInputNumberInput() {
   setBtnsDisabled();
 }
+
 
 function onCreateButtonClick() {
   const amount = Number(refs.inputNumber.value);
@@ -47,10 +49,12 @@ function onCreateButtonClick() {
   setBtnsDisabled();
 }
 
+
 function onDestroyButtonClick() {
   refs.boxesContainer.innerHTML = '';
   setBtnsDisabled();
 }
+
 
 function createBoxesHtml(amount) {
   const baseSize = 30;
@@ -61,9 +65,9 @@ function createBoxesHtml(amount) {
     boxesMarkup += `<div style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
   }
   const boxesContainer = document.getElementById('boxes');
-  boxesContainer.innerHTML = boxesMarkup;
- 
+  boxesContainer.innerHTML = boxesMarkup; 
 }
+
 
 function setBtnsDisabled() {
   if (refs.boxesContainer.innerHTML === '') {
