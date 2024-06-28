@@ -1,8 +1,15 @@
 @import "./utils/variables.css";
+@import "./utils/fonts.css";
 
-@import "./common.css";
-/* @import "./base/container.css"; */
+@import "./base/reset.css";
+
+@import "./base/common.css";
+@import "./base/container.css";
 
 
 @import "./layout/task-1.css";
 @import "./layout/task-2.css";
+@import "./layout/task-3.css";
+@import "./layout/task-4.css";
+@import "./layout/task-5.css";
+@import "./layout/task-6.css";
